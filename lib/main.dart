@@ -55,6 +55,7 @@ class _SplashPageState extends State with SingleTickerProviderStateMixin {
         //跳转到首页
         Application.router
             .navigateTo(context, '/home', transition: TransitionType.fadeIn);
+//            .navigateTo(context, '/new_home', transition: TransitionType.fadeIn);
         //销毁本页
 //        Application.router.pop(context);
       }

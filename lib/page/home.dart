@@ -47,6 +47,9 @@ class _TabPageState extends State<TabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("首页"),
+      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectIndex),
       ),
