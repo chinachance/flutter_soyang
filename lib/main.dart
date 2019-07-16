@@ -67,7 +67,7 @@ class _SplashPageState extends State with SingleTickerProviderStateMixin {
     return Scaffold(
       body: new Center(
         child: new Image.asset(
-          'images/ic_add',
+          'assets/images/ic_add.png',
           fit: BoxFit.fill,
         ),
       ),

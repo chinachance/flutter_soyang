@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_soyang/res/colors.dart';
+import 'package:flutter_soyang/utils/toast.dart';
+
 import 'home_fragment.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatelessWidget {
   HomePage() : super();
@@ -32,24 +34,9 @@ class _TabPageState extends State<TabPage> {
     HomeFragmentPage(),
   ];
 
-  ///显示toast
-  void shoToast() {
-    Fluttertoast.showToast(
-      msg: "This is Center Short Toast",
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      timeInSecForIos: 1,
-      backgroundColor: Colors.grey,
-      textColor: Colors.black,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("首页"),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectIndex),
       ),
@@ -57,7 +44,7 @@ class _TabPageState extends State<TabPage> {
       ///底部tab中间的突起的按钮
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            shoToast();
+            Toasts.show("点击了");
           },
           child: Icon(
             Icons.add,
@@ -93,7 +80,7 @@ class _TabPageState extends State<TabPage> {
       ///BottomAppBar 不规则底部工具栏 ----4个tab
       ///另外一种凹下去的tab
       bottomNavigationBar: BottomAppBar(
-        color: Colors.lightBlue, //底部工具栏的颜色。
+        color: Colours.app_main, //底部工具栏的颜色。
         //设置底栏的形状，一般使用这个都是为了和floatingActionButton融合，
         // 所以使用的值都是CircularNotchedRectangle(),有缺口的圆形矩形。
         shape: CircularNotchedRectangle(),
@@ -105,7 +92,7 @@ class _TabPageState extends State<TabPage> {
             IconButton(
               icon: Icon(
                 Icons.home,
-                color: Colors.white,
+                color: _selectIndex == 0 ? Colors.yellow : Colors.white,
               ),
               color: Colors.white,
               onPressed: () {
@@ -116,7 +103,10 @@ class _TabPageState extends State<TabPage> {
             ),
             IconButton(
               padding: const EdgeInsets.fromLTRB(8.0, 8.0, 100.0, 8.0),
-              icon: Icon(Icons.access_alarms, color: Colors.white),
+              icon: Icon(
+                Icons.access_alarms,
+                color: _selectIndex == 1 ? Colors.yellow : Colors.white,
+              ),
               color: Colors.white,
               onPressed: () {
                 setState(() {
@@ -127,7 +117,7 @@ class _TabPageState extends State<TabPage> {
             IconButton(
               icon: Icon(
                 Icons.home,
-                color: Colors.white,
+                color: _selectIndex == 2 ? Colors.yellow : Colors.white,
               ),
               color: Colors.white,
               onPressed: () {
@@ -139,7 +129,7 @@ class _TabPageState extends State<TabPage> {
             IconButton(
               icon: Icon(
                 Icons.home,
-                color: Colors.white,
+                color: _selectIndex == 3 ? Colors.yellow : Colors.white,
               ),
               color: Colors.white,
               onPressed: () {
