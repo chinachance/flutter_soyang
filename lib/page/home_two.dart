@@ -25,6 +25,11 @@ class TabPage extends StatefulWidget {
 
 class _TabPageState extends State<TabPage> {
   int _selectIndex = 0;
+  bool _selectOne = false;
+  bool _selectTwo = false;
+  bool _selectThree = false;
+  bool _selectFour = false;
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -62,16 +67,26 @@ class _TabPageState extends State<TabPage> {
             background: Colors.blue,
             iconButtons: [
               new IconButton(
-                  color: Colors.blue,
+                  color: _selectOne ? Colors.red : Colors.blue,
                   icon: new Icon(Icons.home, size: 30),
                   onPressed: () {
                     _selectIndex = 0;
+                    setState(() {
+                      _selectOne = true;
+                      _selectTwo = false;
+                    });
                   }),
               new IconButton(
                   color: Colors.blue,
-                  icon: new Icon(Icons.search, size: 30),
+                  icon: _selectTwo
+                      ? new Icon(Icons.search, size: 30)
+                      : new Icon(Icons.ac_unit, size: 30),
                   onPressed: () {
                     _selectIndex = 1;
+                    setState(() {
+                      _selectOne = false;
+                      _selectTwo = true;
+                    });
                   }),
               new IconButton(
                   color: Colors.blue,

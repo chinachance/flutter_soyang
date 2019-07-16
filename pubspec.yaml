@@ -34,6 +34,8 @@ dependencies:
   #权限
   permission_handler: ^3.0.0
   rxdart: ^0.21.0
+  # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
+  url_launcher: 5.0.2
 
 dev_dependencies:
   flutter_test:

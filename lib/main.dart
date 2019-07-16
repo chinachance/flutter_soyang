@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_soyang/route/application.dart';
+import 'package:flutter_soyang/route/fluro_navigator.dart';
 import 'package:flutter_soyang/route/routes.dart';
 
 void main() => runApp(MyApp());
@@ -53,11 +54,9 @@ class _SplashPageState extends State with SingleTickerProviderStateMixin {
     _animation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         //跳转到首页
-        Application.router
-            .navigateTo(context, '/home', transition: TransitionType.fadeIn);
-//            .navigateTo(context, '/new_home', transition: TransitionType.fadeIn);
-        //销毁本页
-//        Application.router.pop(context);
+        NavigatorUtils.push(
+            context, '/home', transition: TransitionType.fadeIn, replace: true);
+//        NavigatorUtils.push(context, '/new_home',transition: TransitionType.fadeIn,replace: true);
       }
     });
     _controller.forward();
