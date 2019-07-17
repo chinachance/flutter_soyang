@@ -38,6 +38,10 @@ dependencies:
   url_launcher: 5.0.2
   # Flutter UI组件库 https://github.com/flutterchina/flukit.
   flukit: ^1.0.0
+  # Flutter 常用工具类库 https://github.com/Sky24n/flustars
+  flustars: ^0.2.6+1
+  # 格式化String https://github.com/Naddiseo/dart-sprintf
+  sprintf: ^4.0.2
 
 dev_dependencies:
   flutter_test:
