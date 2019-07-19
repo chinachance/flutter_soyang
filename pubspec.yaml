@@ -28,7 +28,7 @@ dependencies:
   #toast
   fluttertoast: ^3.0.1
   #网络请求
-  dio: ^2.1.7
+  dio: ^2.1.10
   #webview
   flutter_webview_plugin: ^0.3.5
   #权限
@@ -42,6 +42,10 @@ dependencies:
   flustars: ^0.2.6+1
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.0.2
+  # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
+  cached_network_image: ^1.0.0
+  #dialog https://github.com/fayaz07/progress_dialog
+  progress_dialog: ^1.1.0+1
 
 dev_dependencies:
   flutter_test:
@@ -93,3 +97,4 @@ flutter:
     #注意:资源文件夹里边如果有文件夹,都需要加上,不加会加载不到资源
     - assets/images/
     - assets/images/banner/
+    - assets/images/user/

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_soyang/components/progress_dialog.dart';
-import 'package:flutter_soyang/route/fluro_navigator.dart';
-import 'package:flutter_soyang/utils/Utils.dart';
 import 'package:flutter_soyang/utils/toast.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 
 import 'base_page_presenter.dart';
 import 'mvps.dart';
 
 abstract class BasePageState<T extends StatefulWidget,
-    V extends BasePagePresenter> extends State<T> implements IMvpView {
+V extends BasePagePresenter> extends State<T>
+    implements IMvpView {
   V presenter;
+  ProgressDialog pr;
 
   BasePageState() {
     presenter = createPresenter();
@@ -22,7 +22,8 @@ abstract class BasePageState<T extends StatefulWidget,
   void closeProgress() {
     if (mounted && _isShowDialog) {
       _isShowDialog = false;
-      NavigatorUtils.goBack(context);
+//      NavigatorUtils.goBack(context);
+      pr.hide();
     }
   }
 
@@ -34,19 +35,23 @@ abstract class BasePageState<T extends StatefulWidget,
     if (mounted && !_isShowDialog) {
       _isShowDialog = true;
       try {
-        showTransparentDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: (_) {
-              return WillPopScope(
-                onWillPop: () async {
-                  // 拦截到返回键，证明dialog被手动关闭
-                  _isShowDialog = false;
-                  return Future.value(true);
-                },
-                child: ProgressDialog(hintText: "正在加载..."),
-              );
-            });
+//          showTransparentDialog(
+//            context: context,
+//            barrierDismissible: false,
+//            builder: (_) {
+//              return WillPopScope(
+//                onWillPop: () async {
+//                  // 拦截到返回键，证明dialog被手动关闭
+//                  _isShowDialog = false;
+//                  return Future.value(true);
+//                },
+//                child: ProgressDialog(hintText: "正在加载..."),
+//              );
+//            });
+        pr = new ProgressDialog(context, ProgressDialogType.Normal);
+        //如果需要监听返回键,可以使用上边注释代码的WillPopScope监听返回键
+        pr.setMessage("正在加载...");
+        pr.show();
       } catch (e) {
         /// 异常原因主要是页面没有build完成就调用Progress。
         print(e);

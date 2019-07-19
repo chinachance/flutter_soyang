@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_soyang/constant/constant.dart';
 import 'package:flutter_soyang/utils/log_utils.dart';
 import 'package:flutter_soyang/utils/toast.dart';
 import 'package:rxdart/rxdart.dart';
@@ -35,7 +36,7 @@ class DioUtils {
         // 不使用http状态码判断状态，使用AdapterInterceptor来处理（适用于标准REST风格）
         return true;
       },
-      baseUrl: "https://api.github.com/",
+      baseUrl: Constant.base_url,
 //      contentType: ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8'),
     );
     _dio = Dio(options);

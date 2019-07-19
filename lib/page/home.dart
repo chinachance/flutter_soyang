@@ -3,6 +3,7 @@ import 'package:flutter_soyang/res/colors.dart';
 import 'package:flutter_soyang/utils/toast.dart';
 
 import 'home_fragment.dart';
+import 'me.dart';
 
 class HomePage extends StatelessWidget {
   HomePage() : super();
@@ -31,7 +32,7 @@ class _TabPageState extends State<TabPage> {
     HomeFragmentPage(),
     HomeFragmentPage(),
     HomeFragmentPage(),
-    HomeFragmentPage(),
+    MePage(),
   ];
 
   @override
