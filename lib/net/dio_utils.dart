@@ -11,7 +11,6 @@ import 'base_entity.dart';
 import 'error_handle.dart';
 import 'intercept.dart';
 
-/// @weilu https://github.com/simplezhli
 class DioUtils {
   static final DioUtils _singleton = DioUtils._internal();
 
