@@ -1,2 +1,2 @@
 # flutter_soyang
-高仿新氧的flutter项目
+flutter基类和工具类的封装
